@@ -1,9 +1,21 @@
 # "Zero-Shot" Super-Resolution using Deep Internal Learning  
-Official implementation
+Official implementation for paper by: Assaf Shocher, Nadav Cohen, Michal Irani
 
 Paper: https://arxiv.org/abs/1712.06087  
 Project page: http://www.wisdom.weizmann.ac.il/~vision/zssr/
 
+----------
+If you find our work useful in your research or publication, please cite our work:
+
+```
+@InProceedings{ZSSR,
+  author = {Assaf Shocher, Nadav Cohen, Michal Irani},
+  title = {"Zero-Shot" Super-Resolution using Deep Internal Learning  },
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  month = {June},
+  year = {2018}
+}
+```
 ----------
 
 # Usage:
@@ -21,7 +33,8 @@ python run_ZSSR.py
 python run_ZSSR.py <config> <gpu-optional>
 ```
 While ``` <config> ``` is an instance of configs.Config class (at configs.py) or 0 for default configuration.  
-and ``` <gpu> ``` is an optional parameter to determine how to use available GPUs (see next section).
+Please see configs.py to determine configuration (data paths, scale-factors etc.)  
+``` <gpu-optional> ``` is an optional parameter to determine how to use available GPUs (see next section).
 
 For using given kernels, you must have a kernels for each input file and each scale-factor named as follows:  
 ``` <inpu_file_name>_<scale_factor_ind_starting_0>.mat ```  
@@ -61,6 +74,6 @@ python run_ZSSR.py X2_GIVEN_KERNEL_CONF
 ```
 Run on a real image
 ```
-X2_REAL_CONF
+python run_ZSSR.py X2_REAL_CONF
 ```
 
