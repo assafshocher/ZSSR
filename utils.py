@@ -41,7 +41,7 @@ def random_augment(ims,
     if base_scales is None:
         base_scales = [np.sqrt(np.prod(im.shape) / np.prod(ims[0].shape)) for im in ims]
 
-    # In case scale is alist of scales with take the smallest one to be the allowed minimum
+    # In case scale is a list of scales with take the smallest one to be the allowed minimum
     max_scale = np.min([max_scale])
 
     # Determine a random scale by probability
@@ -166,7 +166,7 @@ def kernel_shift(kernel, sf):
     #    the degradation process included shifting so we always assume center of mass is center of the kernel.
     # 2. We further shift kernel center so that top left result pixel corresponds to the middle of the sfXsf first
     #    pixels. Default is for odd size to be in the middle of the first pixel and for even sized kernel to be at the
-    #    top left corner of the first pixel. that is why different shift size needed between od and even size.
+    #    top left corner of the first pixel. that is why different shift size needed between odd and even size.
     # Given that these two conditions are fulfilled, we are happy and aligned, the way to test it is as follows:
     # The input image, when interpolated (regular bicubic) is exactly aligned with ground truth.
 
@@ -185,25 +185,6 @@ def kernel_shift(kernel, sf):
 
     # Finally shift the kernel and return
     return interpolation.shift(kernel, shift_vec)
-
-
-def rgb2yiq(im):
-    r, g, b = im[:, :, 0], im[:, :, 1], im[:, :, 2]
-    y = r * 0.299 + g * 0.587 + b * 0.114
-    i = r * 0.596 - g * 0.274 - b * 0.322
-    q = r * 0.211 - g * 0.523 + b * 0.312
-    return np.stack([y, i, q], axis=2)
-
-
-def yiq2rgb(im):
-    y, i, q = im[:, :, 0], im[:, :, 1], im[:, :, 2]
-    r = y + i * 0.956 + q * 0.621
-    g = y - i * 0.272 - q * 0.647
-    b = y - i * 1.106 + q * 1.703
-    r = r * (0 <= r) * (r <= 1) + (r > 1)
-    g = g * (0 <= g) * (g <= 1) + (g > 1)
-    b = b * (0 <= b) * (b <= 1) + (b > 1)
-    return np.stack([r, g, b], axis=2)
 
 
 def prepare_result_dir(conf):

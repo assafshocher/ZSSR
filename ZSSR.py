@@ -444,10 +444,3 @@ class ZSSR:
         # These line are needed in order to see the graphics at real time
         self.fig.canvas.draw()
         plt.pause(0.01)
-
-
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-# net = ZSSR('kernel_example/BSD100_100_lr_rand_ker_X2.png',
-#            Config(), None, ['kernel_example/BSD100_100_lr_rand_ker_X2_0.mat'])
-#
-# net.run()

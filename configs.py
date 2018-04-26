@@ -41,11 +41,11 @@ class Config:
     run_test = True
     run_test_every = 50
     display_every = 20
-    name = 'im'
+    name = 'test'
     plot_losses = False
     result_path = os.path.dirname(__file__) + '/results'
     create_results_dir = True
-    input_path = local_dir = os.path.dirname(__file__) + '/set14'
+    input_path = local_dir = os.path.dirname(__file__) + '/test_data'
     create_code_copy = True  # save a copy of the code in the results folder to easily match code changes to results
     display_test_results = True
     save_results = True
@@ -62,7 +62,9 @@ class Config:
 ########################################
 
 # Basic default config (same as not specifying), non-gradual SRx2 with default bicubic kernel (Ideal case)
+# example is set to run on set14
 X2_ONE_JUMP_IDEAL_CONF = Config()
+X2_ONE_JUMP_IDEAL_CONF.input_path = os.path.dirname(__file__) + '/set14'
 
 # Same as above but with visualization (Recommended for one image, interactive mode, for debugging)
 X2_IDEAL_WITH_PLOT_CONF = Config()
@@ -74,6 +76,7 @@ X2_IDEAL_WITH_PLOT_CONF.input_path = os.path.dirname(__file__) + '/example_with_
 X2_GRADUAL_IDEAL_CONF = Config()
 X2_GRADUAL_IDEAL_CONF.scale_factors = [[1.0, 1.5], [1.5, 1.0], [1.5, 1.5], [1.5, 2.0], [2.0, 1.5], [2.0, 2.0]]
 X2_GRADUAL_IDEAL_CONF.back_projection_iters = [6, 6, 8, 10, 10, 12]
+X2_GRADUAL_IDEAL_CONF.input_path = os.path.dirname(__file__) + '/set14'
 
 # Applying a given kernel. Rotations are canceled sense kernel may be non-symmetric
 X2_GIVEN_KERNEL_CONF = Config()
