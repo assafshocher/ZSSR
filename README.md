@@ -13,7 +13,8 @@ Quick usage:
 ```
 python run_ZSSR.py
 ```
-(First, put your desired low-res files in **<ZSSR_path>/test_data/**.   Results will be created in **<ZSSR_path>/results/<name_date>/**.)
+(First, put your desired low-res files in **<ZSSR_path>/test_data/**. 
+Results will be generated to **<ZSSR_path>/results/<name_date>/**.)
 
 Usage example to test 'Set14', Gradual SR (~0.3dB better results, 6x Runtime)
 ```
