@@ -1,9 +1,18 @@
-# "Zero-Shot" Super-Resolution using Deep Internal Learning  
-Official implementation for paper by: Assaf Shocher, Nadav Cohen, Michal Irani
+# "Zero-Shot" Super-Resolution using Deep Internal Learning  (ZSSR)
+### Official implementation for paper by: Assaf Shocher, Nadav Cohen, Michal Irani
 
 Paper: https://arxiv.org/abs/1712.06087  
-Project page: http://www.wisdom.weizmann.ac.il/~vision/zssr/
+Project page: http://www.wisdom.weizmann.ac.il/~vision/zssr/ (See our results and visual comparison to other methods)
 
+**Accepted CVPR'18**
+
+----------
+This current provided version of ZSSR actually achieves better results on benchmarks than specified on the paper.  
+For example, test 'Set14' without use of gradual SR increments achieves slightly higher PSNR  
+When Gradual increments similar to those specified in the paper applied +0.3dB is obtained.
+
+----------
+![sketch](/figs/sketch.png)
 ----------
 If you find our work useful in your research or publication, please cite our work:
 
@@ -17,7 +26,6 @@ If you find our work useful in your research or publication, please cite our wor
 }
 ```
 ----------
-
 # Usage:
 
 ## Quick usage on your data:  
