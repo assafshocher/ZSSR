@@ -19,7 +19,7 @@ If you find our work useful in your research or publication, please cite our wor
 ```
 @InProceedings{ZSSR,
   author = {Assaf Shocher, Nadav Cohen, Michal Irani},
-  title = {"Zero-Shot" Super-Resolution using Deep Internal Learning  },
+  title = {"Zero-Shot" Super-Resolution using Deep Internal Learning},
   booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
   month = {June},
   year = {2018}
@@ -29,8 +29,8 @@ If you find our work useful in your research or publication, please cite our wor
 # Usage:
 
 ## Quick usage on your data:  
-(First, put your desired low-res files in ```**<ZSSR_path>/test_data/**```.  
-Results will be generated to ```**<ZSSR_path>/results/<name_date>/**```.  
+(First, put your desired low-res files in ```<ZSSR_path>/test_data/```.  
+Results will be generated to ```<ZSSR_path>/results/<name_date>/```.  
 data must be *.png type)
 ```
 python run_ZSSR.py
@@ -85,3 +85,6 @@ Run on a real image
 python run_ZSSR.py X2_REAL_CONF
 ```
 
+----------
+Example kernels were generated from the input images using:  
+[T. Michaeli  and   M. Irani, Nonparametric Blind Super-Resolution.   International Conference on Computer Vision (ICCV), October 2013.](http://www.wisdom.weizmann.ac.il/~vision/BlindSR.html)
