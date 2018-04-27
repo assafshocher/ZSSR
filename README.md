@@ -5,6 +5,7 @@ Paper: https://arxiv.org/abs/1712.06087
 Project page: http://www.wisdom.weizmann.ac.il/~vision/zssr/ (See our results and visual comparison to other methods)
 
 **Accepted CVPR'18**
+
 ----------
 This current provided version of ZSSR actually achieves better results on benchmarks than indicated in the paper.  
 For example, when current version is applied to 'Set14' without use of gradual SR increments achieves slightly higher PSNR then specidied in the paper when 6 gradual increments are applied. When gradual increments similar to those specified in the paper are applied, then +0.3dB is obtained.
