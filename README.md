@@ -19,7 +19,7 @@ If you find our work useful in your research or publication, please cite our wor
 @InProceedings{ZSSR,
   author = {Assaf Shocher, Nadav Cohen, Michal Irani},
   title = {"Zero-Shot" Super-Resolution using Deep Internal Learning},
-  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
   month = {June},
   year = {2018}
 }
