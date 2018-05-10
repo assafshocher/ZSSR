@@ -97,7 +97,7 @@ def contributions(in_length, out_length, scale, kernel, kernel_width, antialiasi
     # So if we measure distance from the left border, middle of pixel 1 is at distance d=0.5, border between 1 and 2 is
     # at d=1, and so on (d = p - 0.5).  we calculate (d_new = d_old / sf) which means:
     # (p_new-0.5 = (p_old-0.5) / sf)     ->          p_new = p_old/sf + 0.5 * (1-1/sf)
-    match_coordinates = 1.0 * out_coordinates / scale + 0.5 * (1 - 1 / scale)
+    match_coordinates = 1.0 * out_coordinates / scale + 0.5 * (1 - 1.0 / scale)
 
     # This is the left boundary to start multiplying the filter from, it depends on the size of the filter
     left_boundary = np.floor(match_coordinates - kernel_width / 2)
