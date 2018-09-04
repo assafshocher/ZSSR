@@ -346,7 +346,7 @@ class ZSSR:
             tmp_output = self.forward_pass(test_input)
 
             # Undo the rotation for the processed output (mind the opposite order of the flip and the rotation)
-            tmp_output = np.rot90(tmp_output, -k) if k < 4 else np.rot90(np.fliplr(tmp_output), k)
+            tmp_output = np.rot90(tmp_output, -k) if k < 4 else np.rot90(np.fliplr(tmp_output), -k)
 
             # fix SR output with back projection technique for each augmentation
             for bp_iter in range(self.conf.back_projection_iters[self.sf_ind]):
