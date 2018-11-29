@@ -73,7 +73,7 @@ python run_ZSSR.py X2_ONE_JUMP_IDEAL_CONF
 ```
 Visualization while running (Recommended for one image, interactive mode, for debugging)
 ```
-python run_ZSSR.py X2_ONE_JUMP_IDEAL_CONF
+python run_ZSSR.py X2_IDEAL_WITH_PLOT_CONF
 ```
 Applying a given kernel
 ```
