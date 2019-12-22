@@ -181,7 +181,7 @@ def kernel_shift(kernel, sf):
 
     # calculate the shift due to scale factor
     kernel_shape = np.array(kernel.shape, dtype=np.float32)[:2]
-    scale_factor = np.array(sf, dtype=np.float32)[:2]
+    scale_factor = np.array([sf] if np.isscalar(sf) else sf, dtype=np.float32)[:2]
     shift_scale = 0.5 * (1.0 / scale_factor + (kernel_shape - 1) % 2 - 1.0)
 
     # calculate the shift due to center of mass
