@@ -179,18 +179,22 @@ def kernel_shift(kernel, sf):
     # Given that these two conditions are fulfilled, we are happy and aligned, the way to test it is as follows:
     # The input image, when interpolated (regular bicubic) is exactly aligned with ground truth.
 
-    # First calculate the current center of mass for the kernel
-    current_center_of_mass = measurements.center_of_mass(kernel)
+    # calculate the shift due to scale factor
+    kernel_shape = np.array(kernel.shape[:2], dtype=np.float32)
+    scale_factor = np.array(sf[:2], dtype=np.float32)
+    shift_scale = 0.5 * (1.0 / scale_factor + (kernel_shape - 1) % 2 - 1.0)
 
-    # The second ("+ 0.5 * ....") is for applying condition 2 from the comments above
-    wanted_center_of_mass = np.array(kernel.shape) / 2 + 0.5 * (sf - (kernel.shape[0] % 2))
+    # calculate the shift due to center of mass
+    current_cm = measurements.center_of_mass(kernel)
+    shift_cm = (kernel_shape - 1.0) / 2 - current_cm
 
     # Define the shift vector for the kernel shifting (x,y)
-    shift_vec = wanted_center_of_mass - current_center_of_mass
+    shift_vec = shift_scale + shift_cm
 
     # Before applying the shift, we first pad the kernel so that nothing is lost due to the shift
     # (biggest shift among dims + 1 for safety)
-    kernel = np.pad(kernel, np.int(np.ceil(np.max(shift_vec))) + 1, 'constant')
+    padding = np.int(np.ceil(np.max(np.abs(shift_vec)))) + 1
+    kernel = np.pad(kernel, padding, 'constant')
 
     # Finally shift the kernel and return
     return interpolation.shift(kernel, shift_vec)
